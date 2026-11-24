@@ -1,0 +1,1 @@
+ALTER TABLE job_posts ADD COLUMN IF NOT EXISTS contact_email TEXT;

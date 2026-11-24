@@ -1,0 +1,18 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kaam Chai admin</title>
+<style>:root{color-scheme:light dark}body{font:15px/1.4 system-ui,sans-serif;max-width:760px;margin:0 auto;padding:14px}
+.j{border:1px solid #8886;border-radius:8px;padding:10px;margin:10px 0}.j.p{border-left:6px solid #F2B705}
+button{font:inherit;padding:7px 10px;margin:4px 4px 0 0;border-radius:6px;border:1px solid #8886;cursor:pointer}input{font:inherit;padding:8px;width:70%}small{opacity:.7}</style></head>
+<body><h1>Moderation queue</h1>
+<p><input id="t" type="password" placeholder="Admin token"> <button onclick="load()">Open</button></p><div id="l"></div>
+<script>
+const H=()=>({'Content-Type':'application/json',Authorization:'Bearer '+document.getElementById('t').value});
+const E=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+async function load(){const r=await fetch('/api/admin/jobs',{headers:H()});const l=document.getElementById('l');
+ if(!r.ok){l.textContent='Wrong token';return}
+ l.innerHTML=(await r.json()).map(j=>`<div class="j ${j.status==='pending_review'?'p':''}"><b>${E(j.title)}</b> · ${E(j.business_name)}, ${E(j.city)}<br><small>${j.status} · ${j.contact_mobile} · reports ${j.report_count} ${j.risk_flag?'· flagged':''} ${j.reasons.length?'· '+E(j.reasons.join(', ')):''}</small><br>
+ ${['approve','reject','remove','refund','blacklist'].map(a=>`<button onclick="act(${j.id},'${a}')">${a}</button>`).join('')}</div>`).join('')||'Nothing to review'}
+async function act(jobId,action){if(!confirm(action+' job '+jobId+'?'))return;
+ const r=await fetch('/api/admin/action',{method:'POST',headers:H(),body:JSON.stringify({jobId,action})});
+ if(!r.ok)alert((await r.json()).error);load()}
+</script></body></html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Job Vacancy Today – Dream jobs! Quick jobs!</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Hind:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#F1F5F2;--card:#fff;--ink:#1B2A27;--mute:#4F635D;--line:#D5DED9;--green:#0F5C4D;--on-green:#fff;--gold:#F2B705;--on-gold:#1B2A27;--red:#B3261E;--soft:#E3EEE9;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#10201C;--card:#182B26;--ink:#E8F0EC;--mute:#9DB1AA;--line:#2D463F;--green:#4FC3A6;--on-green:#08241D;--soft:#203A33;--red:#FF8A80}}
+:root[data-theme="dark"]{--bg:#10201C;--card:#182B26;--ink:#E8F0EC;--mute:#9DB1AA;--line:#2D463F;--green:#4FC3A6;--on-green:#08241D;--soft:#203A33;--red:#FF8A80}
+*{box-sizing:inherit}html{color-scheme:light dark;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.5 Hind,system-ui,sans-serif;max-width:640px;margin-inline:auto}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--green);z-index:10}
+h1,h2,h3{font-family:'Baloo 2',Hind,sans-serif;margin:0;line-height:1.15}
+header{background:var(--green);color:var(--on-green);padding:18px 16px 0;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+header h1{font-size:30px;font-weight:800}header p{margin:2px 0 12px;opacity:.85;font-size:14px}
+.header-top{display:flex;align-items:center;justify-content:space-between;gap:10px}.header-tools{display:flex;gap:6px;flex:none}.header-tool{border:1px solid color-mix(in srgb,var(--on-green) 45%,transparent);border-radius:8px;background:transparent;color:inherit;font:600 13px Hind,sans-serif;padding:6px 9px;cursor:pointer;white-space:nowrap}.header-tool:hover{background:color-mix(in srgb,var(--on-green) 12%,transparent)}
+@media(max-width:460px){.header-top{align-items:flex-start;flex-wrap:wrap}.header-tools{width:100%;justify-content:flex-end;margin-top:-4px;margin-bottom:6px}.header-top .brand{width:100%}}
+nav{display:flex;gap:4px}nav button{flex:1;border:0;background:transparent;color:inherit;font:600 16px Hind,sans-serif;padding:12px;border-bottom:4px solid transparent;opacity:.7;cursor:pointer}
+nav button[aria-selected=true]{opacity:1;border-color:var(--gold)}
+main{padding:14px 14px 40px}
+.filters{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}.filters input{grid-column:1/-1}
+input,select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:11px 12px}
+input:focus,select:focus,textarea:focus,button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:1px}
+label{display:block;font-weight:600;font-size:14px;margin:12px 0 4px}label small{font-weight:400;color:var(--mute)}
+.job{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px;margin-bottom:12px;border-left:6px solid var(--green)}
+.job.feat{border-left-color:var(--gold)}
+.job.sample{border-left-color:#879890;background:color-mix(in srgb,var(--card) 92%,var(--soft))}
+.sample-label{display:inline-block;color:var(--mute);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;margin-bottom:5px}
+.job-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.job-actions .btn{font-size:14px;padding:9px 10px}.job-actions .link{border:1px solid var(--line);border-radius:8px}
+.job h3{font-size:20px}.biz{color:var(--mute);margin:0 0 8px;font-size:14px}
+.facts{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;font-size:14px;margin:8px 0}.facts b{display:block;font-size:12px;color:var(--mute);font-weight:500}
+.tag{display:inline-block;background:var(--gold);color:var(--on-gold);font-weight:600;font-size:12px;border-radius:99px;padding:1px 9px;margin-left:6px;vertical-align:middle}
+.row{display:flex;gap:8px;align-items:center;margin-top:10px}
+.btn{border:0;border-radius:8px;background:var(--green);color:var(--on-green);font:600 16px Hind,sans-serif;padding:12px 16px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.btn.alt{background:var(--soft);color:var(--ink)}.btn.gold{background:var(--gold);color:var(--on-gold)}.btn.full{width:100%}
+.link{background:none;border:0;color:var(--mute);text-decoration:underline;font:inherit;font-size:13px;cursor:pointer;padding:6px}
+.err{color:var(--red);font-size:13px;margin-top:3px;min-height:0}
+.box{background:var(--soft);border-radius:8px;padding:12px;margin-top:14px;font-size:14px}
+.box div{display:flex;justify-content:space-between}.box .tot{font-weight:600;font-size:18px;border-top:1px solid var(--line);margin-top:6px;padding-top:6px}
+.chk{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:14px;margin-top:14px}.chk input{width:22px;height:22px;margin:0;flex:none}
+.empty{text-align:center;color:var(--mute);padding:40px 10px}
+.ov{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:flex-end;justify-content:center;z-index:20}
+.ov[hidden]{display:none}
+.sheet{background:var(--card);width:100%;max-width:640px;border-radius:16px 16px 0 0;padding:20px 16px calc(20px + env(safe-area-inset-bottom,0px));max-height:90vh;overflow:auto}
+.sheet h2{margin-bottom:8px}.sheet .btn{margin-top:10px}
+.ok{text-align:center}.ok .big{font-size:48px}
+.pay label{display:flex;gap:10px;font-weight:400;border:1.5px solid var(--line);border-radius:8px;padding:10px;margin:6px 0;align-items:center}.pay input{width:auto}
+.note{font-size:12px;color:var(--mute);margin-top:10px}
+@media (prefers-reduced-motion:no-preference){.sheet{animation:up .22s ease-out}@keyframes up{from{transform:translateY(40px);opacity:0}}}
+</style>
+</head>
+<body>
+<header><div class="header-top"><div class="brand"><h1>Job Vacancy Today</h1><p>Find your next career opportunity</p></div><div class="header-tools" aria-label="Account navigation"><button class="header-tool" id="nav-login" type="button">Login</button><button class="header-tool" id="nav-notifications" type="button">Notifications</button></div></div>
+<nav role="tablist"><button role="tab" id="t-find" aria-selected="true">Find jobs</button><button role="tab" id="t-post" aria-selected="false">Post a job</button></nav></header>
+<main id="main"></main>
+<div id="ov" class="ov" hidden></div>
+<script>
+const TYPES=['Proprietoship Firms','Partnership Firms','LLP Firms','Pvt Ltd Company','Trust & Charity','Other'];
+const PRICE={7:99,15:149,30:249}, FEAT=100, GST=.18, DAY=864e5;
+const $=s=>document.querySelector(s);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const now=()=>Date.now();
+const samples=[
+ {id:'sample-1',title:'Front Desk Assistant',biz:'Harborview Family Clinic',type:'Proprietorship Firms',city:'Chennai',loc:'Adyar',vac:2,sal:'₹15,000–18,000 / month',time:'9 am–6 pm, six days',desc:'Greet visitors, schedule appointments and manage basic reception records.'},
+ {id:'sample-2',title:'Junior Web Developer',biz:'PixelRoute Digital LLP',type:'LLP Firms',city:'Bengaluru',loc:'HSR Layout',vac:1,sal:'₹3.6–5 lakh / year',time:'Hybrid · Mon–Fri',desc:'Build and maintain responsive web features with a small product team.'},
+ {id:'sample-3',title:'Retail Sales Associate',biz:'Green Basket Market',type:'Partnership Firms',city:'Pune',loc:'Kothrud',vac:4,sal:'₹13,000–16,000 / month',time:'Shift-based · 8 hours',desc:'Help customers, replenish shelves and support daily store operations.'},
+ {id:'sample-4',title:'Accounts Executive',biz:'Aster Components Pvt Ltd',type:'Pvt Ltd Company',city:'Chennai',loc:'Guindy',vac:1,sal:'₹22,000–28,000 / month',time:'9:30 am–6 pm',desc:'Assist with invoices, reconciliations and monthly accounts reporting.'},
+ {id:'sample-5',title:'Community Outreach Coordinator',biz:'Udaya Learning Trust',type:'Trust & Charity',city:'Coimbatore',loc:'Peelamedu',vac:2,sal:'₹18,000–22,000 / month',time:'Monday–Saturday',desc:'Coordinate local learning events and maintain participant records.'},
+ {id:'sample-6',title:'Delivery Operations Associate',biz:'SwiftCart Logistics',type:'Other',city:'Hyderabad',loc:'Madhapur',vac:3,sal:'₹20,000–25,000 / month',time:'Rotating shifts',desc:'Track dispatches, coordinate with delivery partners and resolve order issues.'}
+];
+let jobs=[
+ {id:1,title:'Accountant',biz:'SS MEDIA',type:'Proprietorship Firms',city:'Kodambakkam',loc:'Bus Stand Road',addr:'12 Bus Stand Rd',vac:1,sal:'₹14,000–16,000',time:'5 am–2 pm',desc:'Experience required.',phone:'9876543210',exp:now()+6*DAY,feat:1,rep:0},
+ {id:2,title:'Manager',biz:'XYZ Solutions',type:'Partnership Firms',city:'Vadapalani',loc:'Market Street',addr:'45 Market St',vac:4,sal:'₹12,000–15,000',time:'10 am–10 pm, rotating',desc:'Meals provided.',phone:'9123456780',exp:now()+12*DAY,rep:0},
+ {id:3,title:'Graphic Designer',biz:'Royal Technologies',type:'Pvt Ltd Company',city:'Saidapet',loc:'Sanar Street',addr:'7 Sanar St',vac:3,sal:'₹18,000-25,000',time:'Mon-Fri',desc:'Training provided.',phone:'9988776655',exp:now()+25*DAY,rep:0},
+ {id:4,title:'Supervisor',biz:'Unity Trust',type:'Trust & Charity',city:'Virugambakkam',loc:'TVS Colony',addr:'3 Station Rd',vac:2,sal:'₹11,000–13,000',time:'8 am–6 pm',desc:'Billing and customer service.',phone:'9001122334',exp:now()+3*DAY,rep:0}
+];
+let seq=10, accepted=false, view='find', f={q:'',type:''};
+let otpToken=sessionStorage.getItem('otpToken')||'',otpPhone=sessionStorage.getItem('otpPhone')||'';
+const api=async(url,options={})=>{const r=await fetch(url,{...options,headers:{'Content-Type':'application/json',...(options.headers||{})}});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||'Something went wrong. Please try again.');return j};
+jobs=[];
+const FRAUD=[[/regist?ration|security|deposit|advance|joining\s*fee|processing\s*fee/i,'asks applicants to pay money'],[/\botp\b|send\s*money|transfer|upi\s*id|bank\s*details/i,'asks for OTPs or money transfers'],[/earn\s*(daily|per\s*day|₹?\s*\d)|guaranteed\s*(income|job)|no\s*interview|work\s*from\s*home|easy\s*money/i,'uses typical scam wording']];
+function fraudCheck(d){const t=[d.title,d.desc,d.biz,d.time,d.sal].join(' ');for(const [re,why] of FRAUD)if(re.test(t))return 'Listing blocked: it '+why+'. Applicants must never be asked to pay.';return ''}
+const left=e=>{const m=e-now();return m>DAY?Math.ceil(m/DAY)+' days left':m>36e5?Math.ceil(m/36e5)+' hours left':Math.max(1,Math.ceil(m/6e4))+' min left'};
+function live(){return jobs.filter(j=>j.exp>now()&&j.rep<3)}
+function render(){
+ $('#t-find').setAttribute('aria-selected',view==='find');$('#t-post').setAttribute('aria-selected',view==='post');
+ view==='find'?renderFind():renderPost()}
+function renderFind(){
+ $('#main').innerHTML=`<div class="filters"><input id="q" type="search" placeholder="Search city, area or job" value="${esc(f.q)}"><select id="ty"><option value="">All establishments</option>${TYPES.map(t=>`<option${f.type===t?' selected':''}>${t}</option>`).join('')}</select><button class="btn alt" id="near">Near me</button></div><div id="list"></div><p class="note">Listings disappear automatically when they expire.</p>`;
+ $('#q').oninput=e=>{f.q=e.target.value;list()};$('#ty').onchange=e=>{f.type=e.target.value;list()};
+ $('#near').onclick=()=>{f.q='Vadapalani';$('#q').value=f.q;list()};list()}
+function list(){
+ const q=f.q.toLowerCase(),r=live().filter(j=>(!f.type||j.type===f.type)&&(!q||[j.title,j.biz,j.city,j.loc].join(' ').toLowerCase().includes(q))).sort((a,b)=>(b.feat||0)-(a.feat||0)||b.id-a.id);
+ const demo=samples.filter(j=>(!f.type||j.type===f.type)&&(!q||[j.title,j.biz,j.city,j.loc].join(' ').toLowerCase().includes(q)));
+ const cards=r.map(j=>`<article class="job${j.feat?' feat':''}" id="job-${esc(j.id)}"><h3>${esc(j.title)}${j.feat?'<span class="tag">Featured</span>':''}</h3><p class="biz">${esc(j.biz)} · ${esc(j.type)}</p>
+ <div class="facts"><div><b>Location</b>${esc(j.loc)}, ${esc(j.city)}</div><div><b>Pay</b>${esc(j.sal)}</div><div><b>Vacancies</b>${j.vac}</div><div><b>Timings</b>${esc(j.time)}</div></div>
+ ${j.desc?`<p style="margin:6px 0;font-size:14px">${esc(j.desc)}</p>`:''}
+ <div class="row"><span class="note" style="margin:0">${left(j.exp)}</span></div>
+ <div class="job-actions"><button class="btn" data-apply="${j.id}">Apply directly</button><button class="btn alt" data-message="${j.id}">Send a message</button><button class="btn alt" data-share="${j.id}">Share job</button><button class="link" data-r="${j.id}">Report this job</button></div></article>`).join('');
+ const examples=demo.length?`<div class="box"><b>Sample openings</b><p class="note" style="margin:2px 0 0">Illustrative examples from different kinds of employers. These are not live vacancies.</p></div>${demo.map(j=>`<article class="job sample"><span class="sample-label">Example listing</span><h3>${esc(j.title)}</h3><p class="biz">${esc(j.biz)} · ${esc(j.type)}</p><div class="facts"><div><b>Location</b>${esc(j.loc)}, ${esc(j.city)}</div><div><b>Pay</b>${esc(j.sal)}</div><div><b>Vacancies</b>${j.vac}</div><div><b>Timings</b>${esc(j.time)}</div></div><p style="margin:6px 0;font-size:14px">${esc(j.desc)}</p></article>`).join('')}`:'';
+ $('#list').innerHTML=(cards||(!demo.length?'<div class="empty"><h3>No jobs match yet</h3><p>Clear the search or check back soon.</p></div>':''))+examples;
+ if(location.hash.startsWith('#job-'))document.getElementById(decodeURIComponent(location.hash.slice(1)))?.scrollIntoView({block:'start'});
+ document.querySelectorAll('[data-apply]').forEach(b=>b.onclick=()=>contact(+b.dataset.apply,'apply'));
+ document.querySelectorAll('[data-message]').forEach(b=>b.onclick=()=>contact(+b.dataset.message,'message'));
+ document.querySelectorAll('[data-share]').forEach(b=>b.onclick=()=>shareJob(+b.dataset.share));
+ document.querySelectorAll('[data-r]').forEach(b=>b.onclick=()=>report(+b.dataset.r))}
+function open(h){const o=$('#ov');o.innerHTML=`<div class="sheet" role="dialog" aria-modal="true">${h}</div>`;o.hidden=false;o.onclick=e=>{if(e.target===o)close()}}
+function close(){$('#ov').hidden=true;$('#ov').innerHTML=''}
+function contact(id){
+ const j=jobs.find(x=>x.id===id);if(!j)return;
+ if(!accepted){open(`<h2>Before you contact</h2><p>Job Vacancy Today only helps you find jobs. We are not a party to any hiring, pay or working conditions, and we do not guarantee a job. <b>Never pay anyone a fee to get a job.</b></p><label class="chk"><input type="checkbox" id="ag"><span>I agree to the applicant terms and understand all interaction with the employer is subject to them.</span></label><button class="btn full" id="go" disabled>Agree and show contact options</button><button class="btn alt full" id="cx">Cancel</button>`);
+  $('#ag').onchange=e=>$('#go').disabled=!e.target.checked;$('#go').onclick=()=>{accepted=true;contact(id)};$('#cx').onclick=close;return}
+ const n='91'+j.phone,msg=encodeURIComponent('Hello, I saw your "'+j.title+'" job on Job Vacancy Today.');
+ open(`<h2>${esc(j.biz)}</h2><p>${esc(j.title)} · ${esc(j.loc)}, ${esc(j.city)}</p><a class="btn full" href="tel:+${n}">Call +91 ${j.phone}</a><a class="btn alt full" target="_blank" rel="noopener" href="https://wa.me/${n}?text=${msg}">Message on WhatsApp</a><a class="btn alt full" href="sms:+${n}?body=${msg}">Send SMS</a><button class="link" id="cx">Close</button>`);$('#cx').onclick=close}
+function report(id){
+ open(`<h2>Report this job</h2><p>Tell us why this listing looks fake or unsafe.</p><select id="rs"><option>Asks for money or fees</option><option>Fake or wrong details</option><option>Phone number does not work</option><option>Offensive content</option></select><button class="btn full" id="go">Send report</button><button class="btn alt full" id="cx">Cancel</button>`);
+ $('#cx').onclick=close;$('#go').onclick=()=>{const j=jobs.find(x=>x.id===id);j.rep++;close();list();toast(j.rep>=3?'Reported. This listing is now hidden pending review.':'Reported. Our team will review it.')}}
+function toast(m){open(`<p>${esc(m)}</p><button class="btn full" id="cx">OK</button>`);$('#cx').onclick=close}
+function fee(){const d=+($('#dur')||{}).value,ft=$('#ft')&&$('#ft').checked,base=(PRICE[d]||0)+(ft?FEAT:0),g=Math.round(base*GST*100)/100;return{base,g,tot:base+g,d,ft}}
+function renderPost(){
+ $('#main').innerHTML=`<h2>Post a job</h2><p class="note" style="margin-top:2px">All fields marked * are required.</p><form id="fm" novalidate>
+ <label>Business name *<input name="biz" maxlength="60"></label><div class="err" data-e="biz"></div>
+ <label>Establishment type *<select name="type">${TYPES.map(t=>`<option>${t}</option>`).join('')}</select></label>
+ <label>Full address *<input name="addr" maxlength="120" placeholder="Shop no., street"></label><div class="err" data-e="addr"></div>
+ <label>City *<input name="city" maxlength="40"></label><div class="err" data-e="city"></div>
+ <label>Area / locality<input name="loc" maxlength="40"></label>
+ <label>Job title *<input name="title" maxlength="50" placeholder="e.g. Chai master"></label><div class="err" data-e="title"></div>
+ <label>Number of vacancies *<input name="vac" type="number" inputmode="numeric" min="1" max="500"></label><div class="err" data-e="vac"></div>
+ <label>Salary or range *<input name="sal" maxlength="40" placeholder="₹12,000–15,000 per month"></label><div class="err" data-e="sal"></div>
+ <label>Work timings<input name="time" maxlength="50" placeholder="8 am–6 pm"></label>
+ <label>Job details<small> (what you need, benefits)</small><textarea name="desc" rows="3" maxlength="300"></textarea></label>
+ <label>Contact mobile number *<input name="phone" type="tel" inputmode="numeric" maxlength="10" placeholder="10-digit number"></label><div class="err" data-e="phone"></div>
+ <label>How long should it stay live?<select name="dur" id="dur"><option value="7">7 days</option><option value="15">15 days</option><option value="30">30 days</option><option value="0">1 minute (demo of auto-expiry)</option></select></label>
+ <label class="chk"><input type="checkbox" id="ft"><span>Feature at the top of the list (+₹${FEAT})</span></label>
+ <div class="box" id="fee"></div>
+ <label class="chk"><input type="checkbox" name="terms"><span>I confirm the details are true, I will not ask applicants for money, and I accept the employer terms. Listings that break the rules are removed without refund.</span></label><div class="err" data-e="terms"></div>
+ <div class="err" id="fraud" style="font-weight:600;font-size:14px"></div>
+ <button class="btn gold full" style="margin-top:14px">Agree &amp; pay</button></form>`;
+ const upd=()=>{const x=fee();$('#fee').innerHTML=`<div><span>Listing fee</span><span>₹${x.base}</span></div><div><span>GST 18%</span><span>₹${x.g.toFixed(2)}</span></div><div class="tot"><span>Total</span><span>₹${x.tot.toFixed(2)}</span></div>`};
+ $('#dur').onchange=upd;$('#ft').onchange=upd;upd();$('#fm').onsubmit=submit}
+function submit(e){
+ e.preventDefault();const F=new FormData(e.target),d=Object.fromEntries(F);
+ const rules={biz:[d.biz.trim().length>1,'Enter the business name'],addr:[d.addr.trim().length>5,'Enter the full address'],city:[d.city.trim().length>1,'Enter the city'],title:[d.title.trim().length>2,'Enter the job title'],vac:[+d.vac>=1&&+d.vac<=500,'Enter vacancies between 1 and 500'],sal:[d.sal.trim().length>2,'Enter the salary or range'],phone:[/^[6-9]\d{9}$/.test(d.phone),'Enter a valid 10-digit Indian mobile number'],terms:[!!d.terms,'Accept the terms to continue']};
+ let bad=0;document.querySelectorAll('[data-e]').forEach(el=>{const r=rules[el.dataset.e];el.textContent=r[0]?'':r[1];if(!r[0])bad++});
+ const fr=$('#fraud');fr.textContent='';if(bad){document.querySelector('.err:not(:empty)').scrollIntoView({block:'center'});return}
+ const w=fraudCheck(d);if(w){fr.textContent=w;fr.scrollIntoView({block:'center'});return}
+ pay(d,fee())}
+function pay(d,x){
+ open(`<h2>Pay ₹${x.tot.toFixed(2)}</h2><div class="pay"><label><input type="radio" name="m" checked>UPI (GPay, PhonePe, Paytm)</label><label><input type="radio" name="m">Debit / credit card</label><label><input type="radio" name="m">Net banking</label></div><button class="btn gold full" id="go">Pay ₹${x.tot.toFixed(2)}</button><button class="btn alt full" id="fail">Simulate failed payment</button><button class="link" id="cx">Cancel</button><p class="note">Demo only. In the live app this opens Razorpay Checkout, and the listing goes live only after your server verifies the payment webhook.</p>`);
+ $('#cx').onclick=close;$('#fail').onclick=()=>toast('Payment failed. Nothing was charged and no listing was published. Try again.');
+ $('#go').onclick=()=>{$('#go').disabled=true;$('#go').textContent='Processing…';setTimeout(()=>{
+  const j={id:seq++,title:d.title.trim(),biz:d.biz.trim(),type:d.type,city:d.city.trim(),loc:(d.loc||d.city).trim(),addr:d.addr.trim(),vac:+d.vac,sal:d.sal.trim(),time:d.time||'Ask employer',desc:d.desc.trim(),phone:d.phone,exp:now()+(+d.dur?+d.dur*DAY:6e4),feat:x.ft?1:0,rep:0};
+  jobs.unshift(j);
+  open(`<div class="ok"><div class="big">✅</div><h2>Your job is live</h2><p>${esc(j.title)} at ${esc(j.biz)} is now visible to applicants. It expires in ${left(j.exp).replace(' left','')}.</p><p class="note">Receipt: KC-${j.id} · ₹${x.tot.toFixed(2)} paid</p><button class="btn full" id="vw">See my listing</button></div>`);
+  $('#vw').onclick=()=>{close();view='find';f={q:'',type:''};render()}},1200)}}
+// Live application flows: database listings, OTP employer accounts and verified checkout.
+async function renderFind(){
+ $('#main').innerHTML=`<div class="filters"><input id="q" type="search" placeholder="Search city, area or job" value="${esc(f.q)}"><select id="ty"><option value="">All establishments</option>${TYPES.map(t=>`<option${f.type===t?' selected':''}>${t}</option>`).join('')}</select><button class="btn alt" id="near">Near me</button></div><div id="list"></div><p class="note">Listings disappear automatically when they expire.</p>`;
+ $('#q').oninput=e=>{f.q=e.target.value;list()};$('#ty').onchange=e=>{f.type=e.target.value;list()};$('#near').onclick=()=>{f.q='Vadapalani';$('#q').value=f.q;list()};
+ try{const rows=await api('/api/jobs');jobs=rows.map(j=>({id:j.id,title:j.title,biz:j.business_name,type:j.business_type,city:j.city,loc:j.locality||j.city,vac:j.vacancies,sal:j.salary_text,time:j.work_timings||'Ask employer',desc:j.description||'',exp:new Date(j.expires_at).getTime(),feat:j.featured?1:0,rep:0}));list()}catch(e){jobs=[];list();$('#list').insertAdjacentHTML('afterbegin',`<p class="note" role="status">Live vacancies could not be loaded. Sample openings are shown below.</p>`)}}
+async function contact(id,mode='apply'){const j=jobs.find(x=>x.id===id);if(!j)return;if(!accepted){open(`<h2>Before you contact</h2><p>Never pay anyone a fee to get a job. Job Vacancy Today does not guarantee hiring outcomes.</p><label class="chk"><input type="checkbox" id="ag"><span>I agree to the applicant terms.</span></label><button class="btn full" id="go" disabled>Agree and continue</button><button class="btn alt full" id="cx">Cancel</button>`);$('#ag').onchange=e=>$('#go').disabled=!e.target.checked;$('#go').onclick=()=>{accepted=true;contact(id,mode)};$('#cx').onclick=close;return}try{const data=await api(`/api/jobs/${id}/contact`,{method:'POST',body:JSON.stringify({accepted:true})}),phone='91'+data.phone,wa='91'+(data.whatsapp||data.phone),subject=encodeURIComponent('Application: '+j.title),body=encodeURIComponent('Hello, I am interested in the '+j.title+' position at '+j.biz+'. I saw the listing on Job Vacancy Today.'),msg=encodeURIComponent('Hello, I saw your "'+j.title+'" job at '+j.biz+' on Job Vacancy Today.');const actions=mode==='apply'?`<a class="btn full" href="tel:+${phone}">Call employer</a><a class="btn alt full" target="_blank" rel="noopener" href="https://wa.me/${wa}?text=${msg}">Apply via WhatsApp</a>`:`<a class="btn full" href="sms:+${phone}?body=${msg}">Send SMS</a><a class="btn alt full" target="_blank" rel="noopener" href="https://wa.me/${wa}?text=${msg}">Message on WhatsApp</a>${data.email?`<a class="btn alt full" href="mailto:${encodeURIComponent(data.email)}?subject=${subject}&body=${body}">Send email</a>`:'<p class="note">Email messaging isn’t available because this employer did not provide an email address.</p>'}`;open(`<h2>${mode==='apply'?'Apply directly':'Send a message'} · ${esc(j.biz)}</h2><p>${esc(j.title)} · ${esc(j.loc)}, ${esc(j.city)}</p>${actions}<button class="link" id="cx">Close</button>`);$('#cx').onclick=close}catch(e){toast(e.message)}}
+async function shareJob(id){const j=jobs.find(x=>x.id===id);if(!j)return;const url=location.origin+location.pathname+'#job-'+encodeURIComponent(id),title=j.title+' · '+j.biz,text=`${j.title} at ${j.biz} · ${j.loc}, ${j.city}`;try{if(navigator.share){await navigator.share({title,text,url});return}await navigator.clipboard.writeText(url);toast('Job link copied.')}catch(e){if(e.name==='AbortError')return;open(`<h2>Share this job</h2><p>${esc(text)}</p><label>Job link<input id="shareLink" readonly value="${esc(url)}"></label><button class="btn full" id="copyLink">Copy link</button><button class="btn alt full" id="cx">Close</button>`);$('#copyLink').onclick=async()=>{try{await navigator.clipboard.writeText(url);close();toast('Job link copied.')}catch{$('#shareLink').select();document.execCommand('copy');close();toast('Job link copied.')}};$('#cx').onclick=close}}
+function report(id){open(`<h2>Report this job</h2><p>Tell us why this listing looks fake or unsafe.</p><select id="rs"><option>Asks for money or fees</option><option>Fake or wrong details</option><option>Phone number does not work</option><option>Offensive content</option></select><button class="btn full" id="go">Send report</button><button class="btn alt full" id="cx">Cancel</button>`);$('#cx').onclick=close;$('#go').onclick=async()=>{try{await api('/api/reports',{method:'POST',body:JSON.stringify({jobId:id,reason:$('#rs').value})});close();toast('Reported. Our team will review it.')}catch(e){toast(e.message)}}}
+function renderPost(){
+ $('#main').innerHTML=`<h2>Post a job</h2><p class="note">Register or sign in with your employer mobile number. First eligible standard listing is free for 15 days. Another free listing is available after 3 months; earlier posts and featured listings are paid.</p><form id="fm" novalidate>
+ <label>Business name *<input name="biz" maxlength="60" required></label><div class="err" data-e="biz"></div><label>Establishment type *<select name="type">${TYPES.map(t=>`<option>${t}</option>`).join('')}</select></label>
+ <label>Full address *<input name="addr" maxlength="120" required></label><div class="err" data-e="addr"></div><label>City *<input name="city" maxlength="40" required></label><div class="err" data-e="city"></div><label>Area / locality<input name="loc" maxlength="40"></label>
+ <label>Job title *<input name="title" maxlength="50" required></label><div class="err" data-e="title"></div><label>Number of vacancies *<input name="vac" type="number" min="1" max="500" required></label><div class="err" data-e="vac"></div><label>Salary or range *<input name="sal" maxlength="40" required></label><div class="err" data-e="sal"></div>
+ <label>Work timings<input name="time" maxlength="50"></label><label>Job details<textarea name="desc" rows="3" maxlength="300"></textarea></label>
+ <section class="box" id="employer-login" aria-labelledby="login-heading"><h3 id="login-heading">Employer login</h3><label>Employer mobile number *<input name="phone" type="tel" inputmode="numeric" maxlength="10" value="${esc(otpPhone)}" required></label><div class="row"><button type="button" class="btn alt" id="sendOtp">Send login code</button></div><label>6-digit verification code<input id="otpCode" inputmode="numeric" maxlength="6"></label><button type="button" class="btn alt" id="verifyOtp">Verify and sign in</button><p class="note" id="authState">${otpToken?'Employer account verified for this session.':'Verify your number to continue.'}</p><div class="err" data-e="phone"></div></section><label>Employer email <small>(optional, for applicant messages)</small><input name="email" type="email" maxlength="254" placeholder="name@company.com"></label>
+ <label>Paid listing duration<select name="dur" id="dur"><option value="15">15 days</option><option value="7">7 days</option><option value="30">30 days</option></select></label><label class="chk"><input type="checkbox" id="ft"><span>Feature the listing (+₹${FEAT}, paid)</span></label><div class="box" id="fee"></div>
+ <label class="chk"><input type="checkbox" name="terms"><span>I confirm the details are true, will not ask applicants for money, and accept the employer terms.</span></label><div class="err" data-e="terms"></div><div class="err" id="fraud"></div><button class="btn gold full" style="margin-top:14px">Publish job</button></form><section class="box" id="notifications" aria-labelledby="notifications-heading"><h3 id="notifications-heading">Employer notifications</h3><p class="note">Sign in to see payment and listing updates.</p></section>`;
+ const phone=$('[name="phone"]');phone.oninput=()=>{otpToken='';otpPhone='';sessionStorage.removeItem('otpToken');sessionStorage.removeItem('otpPhone');$('#authState').textContent='Verify your number to continue.'};
+ $('#sendOtp').onclick=async()=>{try{const r=await api('/api/otp/send',{method:'POST',body:JSON.stringify({phone:phone.value})});$('#authState').textContent=r.developmentCode?`Development sign-in code: ${r.developmentCode}`:'Code sent. Enter it above.'}catch(e){$('#authState').textContent=e.message}};
+ $('#verifyOtp').onclick=async()=>{try{const r=await api('/api/otp/verify',{method:'POST',body:JSON.stringify({phone:phone.value,code:$('#otpCode').value})});otpToken=r.otpToken;otpPhone=phone.value;sessionStorage.setItem('otpToken',otpToken);sessionStorage.setItem('otpPhone',otpPhone);$('#authState').textContent='Employer account verified for this session.';refreshNotifications()}catch(e){$('#authState').textContent=e.message}};
+ const upd=()=>{const x=fee();$('#fee').innerHTML=`<div><span>Paid listing fee (before free eligibility)</span><span>₹${x.base}</span></div><div><span>GST 18%</span><span>₹${x.g.toFixed(2)}</span></div><div class="tot"><span>Paid total</span><span>₹${x.tot.toFixed(2)}</span></div>`};$('#dur').onchange=upd;$('#ft').onchange=upd;upd();$('#fm').onsubmit=submit;if(otpToken)refreshNotifications();
+}
+function employerNav(section){view='post';render();if(section==='notifications'&&!otpToken){$('#notifications').innerHTML='<h3 id="notifications-heading">Employer notifications</h3><p class="note">Sign in with your employer mobile number to view payment and listing updates.</p><button class="btn alt" type="button" id="notification-login">Login to view notifications</button>';$('#notification-login').onclick=()=>employerNav('login')}else if(section==='notifications')refreshNotifications();document.getElementById(section==='login'?'employer-login':'notifications')?.scrollIntoView({behavior:'smooth',block:'center'})}
+async function refreshNotifications(){if(!otpToken||!$('#notifications'))return;try{const rows=await api(`/api/notifications?phone=${encodeURIComponent(otpPhone)}`,{headers:{Authorization:`Bearer ${otpToken}`}});$('#notifications').innerHTML='<h3 id="notifications-heading">Employer notifications</h3>'+(rows.length?rows.map(n=>`<p class="note">${esc(n.message)} · ${new Date(n.created_at).toLocaleString()}</p>`).join(''):'<p class="note">No updates yet. Payment and listing updates will appear here.</p>')}catch(e){$('#notifications').innerHTML=`<h3 id="notifications-heading">Employer notifications</h3><p class="note">${esc(e.message)}</p>`}}
+async function submit(e){e.preventDefault();const F=new FormData(e.target),raw=Object.fromEntries(F),d={business_name:raw.biz,business_type:raw.type,address:raw.addr,city:raw.city,locality:raw.loc,title:raw.title,description:raw.desc,vacancies:+raw.vac,salary_text:raw.sal,work_timings:raw.time,contact_mobile:raw.phone,contact_email:raw.email,duration_days:+raw.dur,featured:$('#ft').checked};const checks={biz:d.business_name.trim().length>1,addr:d.address.trim().length>5,city:d.city.trim().length>1,title:d.title.trim().length>2,vac:d.vacancies>=1&&d.vacancies<=500,sal:d.salary_text.trim().length>2,phone:/^[6-9]\d{9}$/.test(d.contact_mobile),terms:!!raw.terms};let bad=0;document.querySelectorAll('[data-e]').forEach(el=>{el.textContent=checks[el.dataset.e]?'':`Check ${el.dataset.e.replace('_',' ')}.`;if(!checks[el.dataset.e])bad++});if(bad)return;if(!otpToken||otpPhone!==d.contact_mobile){$('#fraud').textContent='Verify this employer mobile number before publishing.';return}const warning=fraudCheck({title:d.title,desc:d.description,biz:d.business_name,time:d.work_timings,sal:d.salary_text});if(warning){$('#fraud').textContent=warning;return}try{await pay(d,fee())}catch(err){toast(err.message)}}
+async function pay(d,x){const result=await api('/api/orders',{method:'POST',body:JSON.stringify({job:d,otpToken,termsAccepted:true})});if(result.free){open(`<div class="ok"><div class="big">✅</div><h2>Your free job is live</h2><p>Your listing will remain active for 15 days.</p><button class="btn full" id="vw">See jobs</button></div>`);$('#vw').onclick=()=>{close();view='find';render()};return}open(`<h2>Complete payment · ₹${(result.amount/100).toFixed(2)}</h2><p>Secure checkout by Razorpay. Your listing appears after payment verification.</p><button class="btn gold full" id="go">Open secure checkout</button><button class="btn alt full" id="cx">Cancel</button>`);$('#cx').onclick=close;$('#go').onclick=async()=>{try{if(!window.Razorpay){await new Promise((resolve,reject)=>{const s=document.createElement('script');s.src='https://checkout.razorpay.com/v1/checkout.js';s.onload=resolve;s.onerror=reject;document.head.appendChild(s)})}const rzp=new Razorpay({key:result.keyId,order_id:result.orderId,amount:result.amount,currency:'INR',name:'Job Vacancy Today',description:d.title,prefill:{contact:d.contact_mobile},handler:async()=>{for(let i=0;i<20;i++){const state=await api(`/api/orders/${result.orderId}`);if(state.job==='published'||state.job==='pending_review'){close();toast(state.job==='published'?'Payment received. Your job is live.':'Payment received. Your job is awaiting review.');return}await new Promise(r=>setTimeout(r,1500))}close();toast('Payment submitted. We are waiting for secure confirmation; check your employer notifications shortly.')}});rzp.open()}catch(err){toast(err.message||'Could not open secure checkout.')}}
+}
+$('#t-find').onclick=()=>{view='find';render()};$('#t-post').onclick=()=>{view='post';render()};
+$('#nav-login').onclick=()=>employerNav('login');$('#nav-notifications').onclick=()=>employerNav('notifications');
+setInterval(()=>{if(view==='find'&&$('#list')&&$('#ov').hidden)renderFind();if(view==='post'&&otpToken&&$('#notifications'))refreshNotifications()},15000);
+render();
+</script>
+</body>
+</html>
