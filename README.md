@@ -1,6 +1,7 @@
-# Kaam Chai backend (Next.js + Postgres + Razorpay)
+# job_vacancy_today backend (Next.js + Postgres + Razorpay)
 
 ## Set up
+
 1. Create a Postgres database (Neon or Supabase) and run `db/schema.sql`. For an existing installation, apply the migrations in order: `db/migrations/20261123_employer_accounts_free_posts_notifications.sql`, then `db/migrations/20261124_job_contact_email.sql`.
 2. Copy `.env.example` to `.env.local` and fill in at least `DATABASE_URL` and `APP_SECRET` for OTP registration/sign-in. Run the schema from step 1 first. For local development without MSG91 keys, the OTP is shown in the employer form; production requires an SMS provider.
 3. `npm install && npm run dev`. Deploy to Vercel with the same env vars. `vercel.json` already schedules the expiry job.
@@ -9,8 +10,9 @@
 6. Open `/admin` and sign in with `ADMIN_TOKEN`.
 
 ## How the pieces connect
+
 | Step | Call |
-|---|---|
+| --- | --- |
 | Employer taps "Send OTP" | `POST /api/otp/send {phone}` then `POST /api/otp/verify {phone, code}` returns `otpToken` |
 | "Agree & pay" | `POST /api/orders {job, otpToken, termsAccepted}` returns `{orderId, amount, keyId}` |
 | Checkout | `new Razorpay({key, order_id, amount, handler}).open()` (script `https://checkout.razorpay.com/v1/checkout.js`) |
@@ -27,6 +29,7 @@ Employer registration and login use phone OTP; the verified phone is the account
 `public/index.html` uses the API for live listings, contact consent, reports, OTP sign-in, free posting and Razorpay checkout.
 
 ## Safety rules built in
+
 - The fee is calculated on the server. The browser total is for display only.
 - A listing is published only by the verified webhook, and only when the paid amount matches.
 - Duplicate webhooks are ignored.
@@ -38,4 +41,5 @@ Employer registration and login use phone OTP; the verified phone is the account
 - Employer and applicant agreement acceptances are saved with a version number and a hashed IP.
 
 ## Data kept
+
 Listings, payment records and agreement logs. No applicant accounts, CVs or call content. Delete or anonymise payment and log rows after your legal retention period.
