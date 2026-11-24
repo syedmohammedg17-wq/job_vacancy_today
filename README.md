@@ -4,7 +4,7 @@
 
 1. Create a Postgres database (Neon or Supabase) and run `db/schema.sql`. For an existing installation, apply the migrations in order: `db/migrations/20261123_employer_accounts_free_posts_notifications.sql`, then `db/migrations/20261124_job_contact_email.sql`.
 2. Copy `.env.example` to `.env.local` and fill in at least `DATABASE_URL` and `APP_SECRET` for OTP registration/sign-in. Run the schema from step 1 first. For local development without MSG91 keys, the OTP is shown in the employer form; production requires an SMS provider.
-3. `npm install && npm run dev`. Deploy to Vercel with the same env vars. `vercel.json` already schedules the expiry job.
+3. `npm install && npm run dev`. Deploy to Vercel with the same env vars. `vercel.json` schedules expiry once daily at 00:00 UTC to fit Hobby cron limits; expired listings are filtered from searches immediately, while their stored status can take up to a day to update.
 4. In the Razorpay dashboard: turn on auto-capture, add a webhook to `https://YOUR-DOMAIN/api/razorpay/webhook` for `payment.captured` and `payment.failed`, and paste its secret into `RAZORPAY_WEBHOOK_SECRET`.
 5. Register an SMS sender and OTP template under DLT (required in India) and add the MSG91 keys. Without keys, OTPs print to the server log for local development only.
 6. Open `/admin` and sign in with `ADMIN_TOKEN`.
